@@ -41,9 +41,9 @@ Lorewalker Cho yells: It will take much time for the Vale to heal, but you have 
 
 enum Yells
 {
-	ANN_SPLIT = 0, // Immerseus [Splits]!
-	ANN_REFORM,                     // Immerseus [Reforms]!
-	ANN_SWIRL                       // Immerseus begins to cast [Swirl]!
+	ANN_SPLIT 	= 0,       // Immerseus [Splits]!
+	ANN_REFORM  = 1,       // Immerseus [Reforms]!
+	ANN_SWIRL   = 3        // Immerseus begins to cast [Swirl]!
 };
 
 enum Spells
@@ -818,46 +818,46 @@ public:
 		void UpdateAI(uint32 const diff)
 		{
 			events.Update(diff);
-
+			
 			while (uint32 eventId = events.ExecuteEvent())
 			{
 				switch (eventId)
 				{
-				case EVENT_SHA_BOLT_ROOM_CHECK:
-				{
-					// Check for players.
-					if (Creature* Immerseus = me->FindNearestCreature(BOSS_IMMERSEUS, 300.0f, true))
+					case EVENT_SHA_BOLT_ROOM_CHECK:
 					{
-						Map::PlayerList const &PlayerList = me->GetMap()->GetPlayers();
-						if (!PlayerList.isEmpty())
+						// Check for players.
+						if (Creature* Immerseus = me->FindNearestCreature(BOSS_IMMERSEUS, 300.0f, true))
 						{
-							for (Map::PlayerList::const_iterator i = PlayerList.begin(); i != PlayerList.end(); ++i)
+							Map::PlayerList const &PlayerList = me->GetMap()->GetPlayers();
+							if (!PlayerList.isEmpty())
 							{
-								if (Player* player = i->GetSource())
+								for (Map::PlayerList::const_iterator i = PlayerList.begin(); i != PlayerList.end(); ++i)
 								{
-									if (me->GetDistance(player) <= 3.0f) // Check if the player is too close and doesn't have the aura.
+									if (Player* player = i->GetSource())
 									{
-										if (!player->HasAura(SPELL_SHA_SPLASH_DMG))
-											me->AddAura(SPELL_SHA_SPLASH_DMG, player);
-									}
-									else
-									{
-										if (!player->FindNearestCreature(NPC_SHA_BOLT, 3.0f, true)) // Else if the player is further and has the aura, remove it.
-											if (player->HasAura(SPELL_SHA_SPLASH_DMG))
-												player->RemoveAurasDueToSpell(SPELL_SHA_SPLASH_DMG);
+										if (me->GetDistance(player) <= 3.0f) // Check if the player is too close and doesn't have the aura.
+										{
+											if (!player->HasAura(SPELL_SHA_SPLASH_DMG))
+												me->AddAura(SPELL_SHA_SPLASH_DMG, player);
+										}
+										else
+										{
+											if (!player->FindNearestCreature(NPC_SHA_BOLT, 3.0f, true)) // Else if the player is further and has the aura, remove it.
+												if (player->HasAura(SPELL_SHA_SPLASH_DMG))
+													player->RemoveAurasDueToSpell(SPELL_SHA_SPLASH_DMG);
+										}
 									}
 								}
 							}
 						}
+						events.ScheduleEvent(EVENT_SHA_BOLT_ROOM_CHECK, 200);
+						break;
 					}
-					events.ScheduleEvent(EVENT_SHA_BOLT_ROOM_CHECK, 200);
-					break;
-				}
 
-				default: break;
+					default: 
+						break;
 				}
 			}
-
 			// No melee.
 		}
 	};
@@ -1166,7 +1166,7 @@ public:
 	}
 };
 
-/*** CONTAMINATED PUDDLE - 71604. ***/
+// CONTAMINATED PUDDLE - 71604
 class npc_contaminated_puddle_immerseus : public CreatureScript
 {
 public:

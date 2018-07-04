@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_kun_lai_summit()
+void AddSC_kun_lai_summit()
 {
-Script* newscript;
-}*/
+
+}

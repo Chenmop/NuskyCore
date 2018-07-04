@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_the_jade_forest()
+void AddSC_the_jade_forest()
 {
-Script* newscript;
-}*/
+
+}

@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_the_situation_in_dalaran()
+void AddSC_the_situation_in_dalaran()
 {
-Script* newscript;
-}*/
+
+}

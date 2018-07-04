@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_isle_of_giants()
+void AddSC_isle_of_giants()
 {
-Script* newscript;
-}*/
+
+}

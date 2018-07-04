@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_townlong_steppes()
+void AddSC_townlong_steppes()
 {
-Script* newscript;
-}*/
+
+}

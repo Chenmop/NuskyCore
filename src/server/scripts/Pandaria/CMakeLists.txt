@@ -17,7 +17,6 @@ set(scripts_STAT_SRCS
   Pandaria/SiegeOfOrgrimmar/boss_immerseus.cpp
   Pandaria/SiegeOfOrgrimmar/boss_fallen_protectors.cpp
 
-  Pandaria/boss_ordos.cpp
   Pandaria/zone_dread_wastes.cpp
   Pandaria/zone_isle_of_giants.cpp
   Pandaria/zone_isle_of_thunder.cpp

@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_timeless_isle()
+void AddSC_timeless_isle()
 {
-Script* newscript;
-}*/
+
+}

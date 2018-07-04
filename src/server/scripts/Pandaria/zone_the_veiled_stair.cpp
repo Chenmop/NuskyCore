@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_the_veiled_stair()
+void AddSC_the_veiled_stair()
 {
-Script* newscript;
-}*/
+	
+}

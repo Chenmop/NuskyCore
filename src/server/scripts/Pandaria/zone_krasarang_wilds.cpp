@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_krasarang_wilds()
+void AddSC_krasarang_wilds()
 {
-Script* newscript;
-}*/
+
+}

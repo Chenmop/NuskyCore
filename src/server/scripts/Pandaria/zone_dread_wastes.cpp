@@ -30,7 +30,7 @@ EndContentData */
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
-/*void AddSC_dread_wastes()
+void AddSC_dread_wastes()
 {
-Script* newscript;
-}*/
+
+}
