@@ -670,6 +670,8 @@ void AddSC_instance_siege_of_orgrimmar();
 void AddSC_siege_of_orgrimmar();
 void AddSC_boss_immerseus();
 void AddSC_fallen_protectors();
+void AddSC_norushen();
+void AddSC_sha_of_pride();
 
 // --
 void AddSC_dread_wastes();
@@ -1422,6 +1424,8 @@ void AddPandariaScripts()
 	AddSC_siege_of_orgrimmar();
 	AddSC_boss_immerseus();
 	AddSC_fallen_protectors();
+	AddSC_norushen();
+	AddSC_sha_of_pride();
 
 	// --
 	AddSC_dread_wastes();

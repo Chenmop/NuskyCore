@@ -309,7 +309,7 @@ public:
                 if (!_player->GetMap()->IsBattlegroundOrArena())
                     _player->SetBattlegroundEntryPoint();
             }
-            else if (map->IsDungeon())
+            else if (map->IsInstance())
             {
                 // we have to go to instance, and can go to player only if:
                 //   1) we are in his group (either as leader or as member)
@@ -458,7 +458,7 @@ public:
                 if (!target->GetMap()->IsBattlegroundOrArena())
                     target->SetBattlegroundEntryPoint();
             }
-            else if (map->IsDungeon())
+            else if (map->IsInstance())
             {
                 Map* destMap = target->GetMap();
 
