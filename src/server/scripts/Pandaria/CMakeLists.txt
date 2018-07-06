@@ -16,6 +16,8 @@ set(scripts_STAT_SRCS
   Pandaria/SiegeOfOrgrimmar/siege_of_orgrimmar.h
   Pandaria/SiegeOfOrgrimmar/boss_immerseus.cpp
   Pandaria/SiegeOfOrgrimmar/boss_fallen_protectors.cpp
+  Pandaria/SiegeOfOrgrimmar/boss_norushen.cpp
+  Pandaria/SiegeOfOrgrimmar/boss_sha_of_pride.cpp
 
   Pandaria/zone_dread_wastes.cpp
   Pandaria/zone_isle_of_giants.cpp

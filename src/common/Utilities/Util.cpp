@@ -224,8 +224,8 @@ std::string TimeToTimestampStr(time_t t)
     //       HH     hour (2 digits 00-23)
     //       MM     minutes (2 digits 00-59)
     //       SS     seconds (2 digits 00-59)
-    char buf[20];
-    snprintf(buf, 20, "%04d-%02d-%02d_%02d-%02d-%02d", aTm.tm_year+1900, aTm.tm_mon+1, aTm.tm_mday, aTm.tm_hour, aTm.tm_min, aTm.tm_sec);
+    char buf[72];
+    snprintf(buf, sizeof(buf), "%04d-%02d-%02d_%02d-%02d-%02d", aTm.tm_year+1900, aTm.tm_mon+1, aTm.tm_mday, aTm.tm_hour, aTm.tm_min, aTm.tm_sec);
     return std::string(buf);
 }
 
@@ -539,7 +539,7 @@ std::string ByteArrayToHexStr(uint8 const* bytes, uint32 arrayLen, bool reverse 
     for (int32 i = init; i != end; i += op)
     {
         char buffer[4];
-        sprintf(buffer, "%02X", bytes[i]);
+        snprintf(buffer, sizeof(buffer), "%02X", bytes[i]);
         ss << buffer;
     }
 

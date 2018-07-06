@@ -134,7 +134,7 @@ public:
             return false;
 
         char buff[2048];
-        sprintf(buff, handler->GetNuskyString(LANG_SYSTEMMESSAGE), args);
+        snprintf(buff, sizeof(buff), handler->GetNuskyString(LANG_SYSTEMMESSAGE), args);
         sWorld->SendServerMessage(SERVER_MSG_STRING, buff);
         return true;
     }
