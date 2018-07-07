@@ -19644,8 +19644,8 @@ void Player::BindToInstance()
     if (!mapSave) //it seems sometimes mapSave is NULL, but I did not check why
         return;
 
-    WorldPacket data(SMSG_INSTANCE_SAVE_CREATED, 4);
-    data << uint32(0);
+    WorldPacket data(SMSG_INSTANCE_SAVE_CREATED, 1);
+    data.WriteBit(0); // isGM?
     GetSession()->SendPacket(&data);
     BindToInstance(mapSave, true);
 
