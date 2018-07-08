@@ -48,8 +48,6 @@ enum Yells
 
 enum Spells
 {
-	/*** IMMERSEUS ***/
-
 	// Misc - General.
 	SPELL_ZERO_POWER = 72242, // No Energy (Corruption) Regen.
 
@@ -214,28 +212,22 @@ enum Events
 
 enum Actions
 {
-	/*** SHA PUDDLE / CONTAMINATED PUDDLE ***/
-
-	ACTION_PUDDLES_MOVE_CENTER = 1,
-	ACTION_STOP_SPLASH_CHECK = 2,
+	ACTION_PUDDLES_MOVE_CENTER 		= 1,
+	ACTION_STOP_SPLASH_CHECK 		= 2
 };
 
 enum Phases
 {
-	/*** IMMERSEUS ***/
-
-	PHASE_IMMERSEUS_NORMAL = 1,
-	PHASE_IMMERSEUS_SPLIT = 2,
+	PHASE_IMMERSEUS_NORMAL 			= 1,
+	PHASE_IMMERSEUS_SPLIT  			= 2
 };
 
 enum Npcs
 {
-	/*** IMMERSEUS ***/
-
-	NPC_SHA_BOLT = 71544, // Sha Bolt NPC - goes with Sha Splash.
-	NPC_SWIRL = 71548, // Swirl NPC (many, in room).
-	NPC_SWIRL_TARGET = 71550, // For the boss channel spell.
-	NPC_CONGEALED_SHA = 71642, // From Swelling Corruption aura, Heroic only!.
+	NPC_SHA_BOLT 					= 71544, // Sha Bolt NPC - goes with Sha Splash.
+	NPC_SWIRL 						= 71548, // Swirl NPC (many, in room).
+	NPC_SWIRL_TARGET 				= 71550, // For the boss channel spell.
+	NPC_CONGEALED_SHA 				= 71642 // From Swelling Corruption aura, Heroic only!.
 
 	// Always 25 mobs summoned for p2, different types are selected according to Corruption level.
 	// Already declared in the header as main mobs.
@@ -245,10 +237,10 @@ enum Npcs
 
 enum GOs
 {
-	GO_TEARS_OF_THE_VALE = 221776 // Loot chest.
+	GO_TEARS_OF_THE_VALE 			= 221776 // Loot chest.
 };
 
-#define MAX_SPLIT_PUDDLES        25       // Maximum number of puddles summoned each Split phase.
+#define MAX_SPLIT_PUDDLES 25 // Maximum number of puddles summoned each Split phase.
 
 
 // IMMERSEUS - 71543

@@ -4,4 +4,5 @@
 
 void AddSC_boss_nalak_the_storm_lord()
 {
+	
 }

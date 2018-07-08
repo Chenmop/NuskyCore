@@ -19,6 +19,12 @@ set(scripts_STAT_SRCS
   Pandaria/SiegeOfOrgrimmar/boss_norushen.cpp
   Pandaria/SiegeOfOrgrimmar/boss_sha_of_pride.cpp
 
+  Pandaria/WorldBosses/boss_galion.cpp
+  Pandaria/WorldBosses/boss_nalak_the_storm_lord.cpp
+  Pandaria/WorldBosses/boss_oondasta.cpp
+  Pandaria/WorldBosses/boss_ordos.cpp
+  Pandaria/WorldBosses/boss_sha_of_anger.cpp
+
   Pandaria/zone_dread_wastes.cpp
   Pandaria/zone_isle_of_giants.cpp
   Pandaria/zone_isle_of_thunder.cpp

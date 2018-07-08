@@ -673,6 +673,13 @@ void AddSC_fallen_protectors();
 void AddSC_norushen();
 void AddSC_sha_of_pride();
 
+//--
+void AddSC_boss_galion();
+void AddSC_boss_nalak_the_storm_lord();
+void AddSC_boss_oondasta();
+void AddSC_boss_ordos();
+void AddSC_boss_sha_of_anger();
+
 // --
 void AddSC_dread_wastes();
 void AddSC_isle_of_giants();
@@ -1426,6 +1433,13 @@ void AddPandariaScripts()
 	AddSC_fallen_protectors();
 	AddSC_norushen();
 	AddSC_sha_of_pride();
+
+	//--
+	AddSC_boss_galion();
+	AddSC_boss_nalak_the_storm_lord();
+	AddSC_boss_oondasta();
+	AddSC_boss_ordos();
+	AddSC_boss_sha_of_anger();
 
 	// --
 	AddSC_dread_wastes();

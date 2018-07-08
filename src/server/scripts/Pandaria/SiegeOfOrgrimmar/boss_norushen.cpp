@@ -395,15 +395,15 @@ public:
 
     bool Execute(uint64 p_CurrTime, uint32 p_Diff)
     {
-        uint32 l_Entries[9] = { eCreatures::CREATURE_GREATER_CORRUPTION,
-            eCreatures::CREATURE_ESSENCE_OF_CORRUPTION,
-            eCreatures::CREATURE_UNLEASHED_ESSENCE_OF_CORRUPTION,
-            eCreatures::CREATURE_TITANIC_CORRUPTION,
-            eCreatures::CREATURE_MANIFESTATION_OF_CORRUPTION,
-            eCreatures::CREATURE_UNLEASHED_MANIFESTATION_OF_CORRUPTION,
-            eCreatures::CREATURE_ROOK_STONE_TOE,
-            eCreatures::CREATURE_SUN_TENDER_HEART,
-            eCreatures::CREATURE_LEVEN_DAWN
+        uint32 l_Entries[9] = {CREATURE_GREATER_CORRUPTION,
+            CREATURE_ESSENCE_OF_CORRUPTION,
+            CREATURE_UNLEASHED_ESSENCE_OF_CORRUPTION,
+            CREATURE_TITANIC_CORRUPTION,
+            CREATURE_MANIFESTATION_OF_CORRUPTION,
+            CREATURE_UNLEASHED_MANIFESTATION_OF_CORRUPTION,
+            CREATURE_ROOK_STONE_TOE,
+            CREATURE_SUN_TENDER_HEART,
+            CREATURE_LEVEN_DAWN
         };
 
         for (uint32 l_I = 0; l_I < 10; l_I++)
@@ -539,15 +539,15 @@ private:
 };
 
 /// Lorewalker Cho - 72872
-class creature_lorewalker_cho_pre_norushen : public CreatureScript
+class npc_lorewalker_cho_pre_norushen : public CreatureScript
 {
 public:
 
-    creature_lorewalker_cho_pre_norushen() : CreatureScript("creature_lorewalker_cho_pre_norushen") { }
+    npc_lorewalker_cho_pre_norushen() : CreatureScript("npc_lorewalker_cho_pre_norushen") { }
 
-    struct creature_lorewalker_cho_pre_norushenAI : public ScriptedAI
+    struct npc_lorewalker_cho_pre_norushenAI : public ScriptedAI
     {
-        creature_lorewalker_cho_pre_norushenAI(Creature* p_Creature) : ScriptedAI(p_Creature)
+        npc_lorewalker_cho_pre_norushenAI(Creature* p_Creature) : ScriptedAI(p_Creature)
         {
             m_Instance = p_Creature->GetInstanceScript();
             m_Intro = false;
@@ -576,9 +576,9 @@ public:
         }
     };
 
-    CreatureAI* GetAI(Creature* p_Creature) const override
+    CreatureAI* GetAI(Creature* p_Creature) const
     {
-        return new creature_lorewalker_cho_pre_norushenAI(p_Creature);
+        return new npc_lorewalker_cho_pre_norushenAI(p_Creature);
     }
 };
 
@@ -586,7 +586,6 @@ public:
 class boss_norushen : public CreatureScript
 {
 public:
-
     boss_norushen() : CreatureScript("boss_norushen") { }
 
     bool OnGossipHello(Player * p_Player, Creature * p_Creature) override
@@ -625,7 +624,6 @@ public:
         boss_norushenAI(Creature* p_Creature) : ScriptedAI(p_Creature), summons(me)
         {
             m_Instance = p_Creature->GetInstanceScript();
-
             m_Intro = false;
             m_Gossip = false;
         }

@@ -1,24 +1,53 @@
+/*
+* Copyright (C) 2013-2018 NuskyCore <http://www.nuskycore.org/>
+* Copyright (C) 2008-2018 TrinityCore <http://www.trinitycore.org/>
+* Copyright (C) 2005-2018 MaNGOS <https://getmangos.com/>
+*
+* This program is free software; you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published by the
+* Free Software Foundation; either version 3 of the License, or (at your
+* option) any later version.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+* more details.
+*
+* You should have received a copy of the GNU General Public License along
+* with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* ScriptData
+SDName: Boss_Ordos
+SD%Complete: 55%
+SDComment: Placeholder
+SDCategory: Boss_Ordos
+EndScriptData */
+
+/* ContentData
+EndContentData */
+
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 
 enum Texts
 {
-    SAY_AGGRO         = 0, 
-    SAY_DEATH         = 1,
-    SAY_SLAY          = 2, 
-    SAY_ANCIENT_FLAME = 3,
-    SAY_ETERNAL_AGONY = 4, 
-    SAY_POOL_OF_FIRE  = 5,
-    SAY_BURNING_SOUL  = 6 
+    SAY_AGGRO         = 0, // Ordos yells: You will take my place on the eternal brazier.
+    SAY_DEATH         = 1, // Ordos yells: The eternal fire will never be extinguished.
+    SAY_SLAY          = 2, // Ordos yells: Up in smoke.
+    SAY_ANCIENT_FLAME = 3, // Ordos yells: Your flesh will melt.
+    SAY_ETERNAL_AGONY = 4, // Ordos yells: Your pain will be endless.
+    SAY_POOL_OF_FIRE  = 5, // Ordos Yells: You will feel but a fraction of my agony.
+    SAY_BURNING_SOUL  = 6  // Ordos Yells: Burn!
 };
 
 enum Spells
 {
-    SPELL_ANCIENT_FLAME     = 144695,
-    SPELL_BURNING_SOUL      = 144689,
-    SPELL_ETERNAL_AGONY     = 144696, 
-    SPELL_MAGMA_CRUSH       = 144688,
-    SPELL_POOL_OF_FIRE      = 144692 
+    SPELL_ANCIENT_FLAME     = 144695, // 40 SEC AFTER PULL
+    SPELL_BURNING_SOUL      = 144689, // 20 SEC AFTER PULL // NEXT: 30 SEC LATER
+    SPELL_ETERNAL_AGONY     = 144696, // ENRAGE SPELL AFTER 5 MINUTES
+    SPELL_MAGMA_CRUSH       = 144688, // 10 SEC AFTER PULL // NEXT: 15 SEC LATER
+    SPELL_POOL_OF_FIRE      = 144692  // 30 SEC AFTER PULL
 };
 
 enum Events
@@ -41,34 +70,34 @@ class boss_ordos : public CreatureScript
             {
             }
 
-            void Reset() override
+            void Reset() OVERRIDE
             {
-                _events.ScheduleEvent(EVENT_MAGMA_CRUSH, urand(10000, 13000)); 
+                _events.ScheduleEvent(EVENT_MAGMA_CRUSH, urand(10000, 13000)); // 10-13
                 
-                _events.ScheduleEvent(EVENT_ANCIENT_FLAME, urand(40000, 45000)); 
+                _events.ScheduleEvent(EVENT_ANCIENT_FLAME, urand(40000, 45000)); // 40-45
                 
-                _events.ScheduleEvent(EVENT_BURNING_SOUL, urand(20000, 30000)); 
+                _events.ScheduleEvent(EVENT_BURNING_SOUL, urand(20000, 30000)); // 20-30
                 
-                _events.ScheduleEvent(EVENT_POOL_OF_FIRE, urand(30000, 45000));
+                _events.ScheduleEvent(EVENT_POOL_OF_FIRE, urand(30000, 45000)); // 30-40
             }
 
-            void KilledUnit(Unit* victim) override
+            void KilledUnit(Unit* victim) OVERRIDE
             {
                 Talk(SAY_SLAY);
             }
 
-            void JustDied(Unit* /*killer*/) override
+            void JustDied(Unit* /*killer*/) OVERRIDE
             {
                 Talk(SAY_DEATH);
             }
     
-            void EnterCombat(Unit* /*who*/) override
+            void EnterCombat(Unit* /*who*/) OVERRIDE
             {
-                _events.ScheduleEvent(EVENT_ETERNAL_AGONY, 300000);
+                _events.ScheduleEvent(EVENT_ETERNAL_AGONY, 300000); // ENRAGE SPELL AFTER 5 MINUTES
                 Talk(SAY_AGGRO);
             }
 
-            void UpdateAI(uint32 diff) override
+            void UpdateAI(uint32 diff) OVERRIDE
             {
                 if (!UpdateVictim())
                     return;
@@ -117,7 +146,7 @@ class boss_ordos : public CreatureScript
                 EventMap _events;
         };
 
-        CreatureAI* GetAI(Creature* creature) const override
+        CreatureAI* GetAI(Creature* creature) const OVERRIDE
         {
             return new boss_ordosAI(creature);
         }
